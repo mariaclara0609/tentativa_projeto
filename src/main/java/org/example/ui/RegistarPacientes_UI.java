@@ -8,7 +8,7 @@ import org.example.utils.Utils;
 public class RegistarPacientes_UI {
     private Hospital hospital;
 
-    public RegistarPaciente_UI(Hospital hospital) {
+    public RegistarPacientes_UI(Hospital hospital) {
         this.hospital = hospital;
     }
 
@@ -27,18 +27,17 @@ public class RegistarPacientes_UI {
         }
     }
 
-    private static Paciente introduzDados() {
+    private Paciente introduzDados() {
         int id = Utils.readIntFromConsole("Introduza o id do paciente: ");
         String nome = Utils.readLineFromConsole("Introduza o nome do paciente: ");
-        // Adaptar
-        char sexo='f';
-        Data dataNascimento = new Data();
-        Data dataInternamento = new Data();
-        return new Paciente(id,nome,sexo,dataNascimento, dataInternamento);
+        char sexo = Utils.readLineFromConsole("Introduza o sexo do paciente (M/F): ").charAt(0);
+        Data dataNascimento = Utils.readDateFromConsole("Introduza a data de nascimento (dd-MM-yyyy): ");
+        Data dataInternamento = new Data(); // Pode ser a data atual ou outra lógica
+
+        return new Paciente(id, nome, sexo, dataNascimento, dataInternamento);
     }
 
     private void apresentaDados(Paciente paciente) {
         System.out.println("Paciente: " + paciente.toString());
     }
-
 }

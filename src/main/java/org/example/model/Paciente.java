@@ -7,11 +7,7 @@ public class Paciente extends Pessoa {
 
     public Paciente(int id, String nome, char sexo, Data dataNascimento, Data dataInternamento) {
         super(id, nome, sexo, dataNascimento);
-        this.dataInternamento = dataNascimento;
-    }
-    public Paciente(Paciente p) {
-        super(p);
-        this.dataInternamento = p.dataNascimento;
+        this.dataInternamento = dataInternamento;
     }
 
     public Data getDataInternamento() {
@@ -22,12 +18,23 @@ public class Paciente extends Pessoa {
         this.dataInternamento = dataInternamento;
     }
 
+    public String classificarPaciente(FrequenciaCardiaca freq, Temperatura temp, Saturacao sat) {
+        if (freq.getFrequencia() >= 60 && freq.getFrequencia() <= 100 &&
+                temp.getTemperatura() >= 36 && temp.getTemperatura() <= 37.5 &&
+                sat.getSaturacao() >= 95) {
+            return "Normal";
+        } else if ((freq.getFrequencia() > 100 && freq.getFrequencia() <= 120) ||
+                (temp.getTemperatura() > 37.5 && temp.getTemperatura() <= 38.5) ||
+                (sat.getSaturacao() < 95 && sat.getSaturacao() >= 90)) {
+            return "Atenção";
+        } else {
+            return "Crítico";
+        }
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Paciente{");
-        sb.append(super.toString());
-        sb.append("dataInternamento=").append(dataInternamento);
-        sb.append('}');
-        return sb.toString();
+        return "Paciente{" + super.toString() + "dataInternamento=" + dataInternamento + '}';
     }
 }
+

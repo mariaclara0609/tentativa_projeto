@@ -9,24 +9,18 @@ public class TecnicoSaude extends Pessoa {
         super(id, nome, sexo, dataNascimento);
         this.especialidade = especialidade;
     }
-    public TecnicoSaude(TecnicoSaude t) {
-        super(t);
-        this.especialidade = t.especialidade;
-    }
 
     public String getEspecialidade() {
         return especialidade;
     }
+
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("TecnicoSaude{");
-        sb.append(super.toString());
-        sb.append(", especialidade='").append(especialidade).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "TecnicoSaude{" + super.toString() + ", especialidade='" + especialidade + '\'' + '}';
     }
 }
+

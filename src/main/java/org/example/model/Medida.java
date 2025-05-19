@@ -12,20 +12,18 @@ public class Medida {
         this.paciente = paciente;
         this.tecnico = tecnico;
     }
+
     public Data getDataRegisto() {
         return dataRegisto;
     }
+
     public void setDataRegisto(Data dataRegisto) {
         this.dataRegisto = dataRegisto;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Medida{");
-        sb.append("dataRegisto=").append(dataRegisto);
-        sb.append(", paciente=").append(paciente);
-        sb.append(", tecnico=").append(tecnico);
-        sb.append('}');
-        return sb.toString();
+        return "Medida{" + "dataRegisto=" + dataRegisto + ", paciente=" + paciente + ", tecnico=" + tecnico + '}';
     }
 }
+
